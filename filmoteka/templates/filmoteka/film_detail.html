@@ -1,0 +1,20 @@
+{% extends 'filmoteka/base.html' %}
+
+{% block content %}
+    <div class="row mt-5">
+        <div class="col-8">
+            <h2 class="display-4 border-bottom">{{ film.title|upper }}</h2>
+            <p>{{ film.plot }}</p>
+            <p>Datum uvedení: <b>{{ film.release_date|date:'j. n. Y' }}</b>, stopáž: <b>{{ film.runtime }} minut</b></p>
+            <p>Hodnocení: <b>{{ film.rate }}</b></p>
+            <p>Žánr: <b>{% for genre in film.genre.all %}{{ genre.name }} | {% endfor %}</b></p>
+        </div>
+        <div class="col-4">
+            <figure>
+                <img src="{{ film.poster.url }}" alt="{{ film.title }}">
+                <figcaption>Plakát k filmu {{ film.title }}</figcaption>
+            </figure>
+        </div>
+    </div>
+    <p class="border-top pt-3"><a href="/">Úvodní stránka</a></p>
+{% endblock %}
