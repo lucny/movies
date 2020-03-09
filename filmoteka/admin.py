@@ -11,4 +11,5 @@ class FilmotekaAdmin(admin.ModelAdmin):
 
 admin.site.register(Film, FilmotekaAdmin)
 admin.site.register(Genre)
+admin.site.register(Attachment)
 
